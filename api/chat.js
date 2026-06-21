@@ -1,7 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { callGemini } from "../lib/gemini.js";
 import { MOOD_PROMPTS, DEFAULT_MOOD, buildVaultContext } from "../lib/personas.js";
-
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export default async function handler(req, res) {
   // Basic CORS so this works whether the frontend is on the same domain or not.
@@ -29,14 +27,7 @@ export default async function handler(req, res) {
     const vaultContext = buildVaultContext(vault);
     const systemPrompt = basePrompt + vaultContext;
 
-    const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 600,
-      system: systemPrompt,
-      messages,
-    });
-
-    const reply = response.content?.[0]?.text ?? "";
+    const reply = await callGemini(systemPrompt, messages, 600);
     res.status(200).json({ reply });
   } catch (err) {
     console.error("Error in /api/chat:", err.message);

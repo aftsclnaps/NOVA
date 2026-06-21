@@ -1,7 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { callGemini } from "../lib/gemini.js";
 import { VERDICT_SYSTEM_PROMPT } from "../lib/personas.js";
-
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -23,14 +21,12 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "situation is required" });
     }
 
-    const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 400,
-      system: VERDICT_SYSTEM_PROMPT,
-      messages: [{ role: "user", content: situation }],
-    });
+    const raw = await callGemini(
+      VERDICT_SYSTEM_PROMPT,
+      [{ role: "user", content: situation }],
+      400
+    );
 
-    const raw = response.content?.[0]?.text ?? "";
     const cleaned = raw.replace(/```json|```/g, "").trim();
     const parsed = JSON.parse(cleaned);
 

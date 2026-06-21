@@ -1,7 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { callGemini } from "../lib/gemini.js";
 import { VIBE_SYSTEM_PROMPT } from "../lib/personas.js";
-
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const DAYS = [
   "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
@@ -23,14 +21,12 @@ export default async function handler(req, res) {
   try {
     const day = DAYS[new Date().getDay()];
 
-    const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 300,
-      system: VIBE_SYSTEM_PROMPT(day),
-      messages: [{ role: "user", content: `vibe for ${day}` }],
-    });
+    const raw = await callGemini(
+      VIBE_SYSTEM_PROMPT(day),
+      [{ role: "user", content: `vibe for ${day}` }],
+      300
+    );
 
-    const raw = response.content?.[0]?.text ?? "";
     const cleaned = raw.replace(/```json|```/g, "").trim();
     const parsed = JSON.parse(cleaned);
 

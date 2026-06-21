@@ -1,0 +1,20 @@
+{
+  "name": "nova-client",
+  "version": "1.0.0",
+  "description": "Frontend for Nova — a dark feminine Y2K AI companion chatbot.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.10"
+  }
+}

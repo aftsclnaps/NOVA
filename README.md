@@ -1,4 +1,4 @@
-# nova 🖤
+# Nova 🖤(https://novababy.vercel.app/)
 
 > your ride-or-die. a dark feminine, Y2K-coded AI companion for the girls who need to vent, gossip, and get a real verdict — not another wellness app.
 

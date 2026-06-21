@@ -1,0 +1,10 @@
+{
+  "name": "nova-companion-app",
+  "version": "2.0.0",
+  "description": "Nova — a dark feminine Y2K AI companion chatbot. Deployed entirely on Vercel: static frontend + serverless API functions.",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1"
+  }
+}

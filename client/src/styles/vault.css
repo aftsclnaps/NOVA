@@ -1,0 +1,217 @@
+.vault-hero {
+  background: var(--ink2);
+  border-bottom: 1px solid var(--line2);
+  padding: 20px 22px 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.vault-hl {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gd2);
+}
+
+.vault-ey {
+  font-size: 9px;
+  color: var(--dim2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vault-add-btn {
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  color: var(--dim);
+  font-size: 9px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.vault-add-btn:hover {
+  border-color: var(--gd);
+  color: var(--gd);
+}
+
+.vault-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.vmodal {
+  background: var(--ink2);
+  border-radius: 16px;
+  border: 1px solid var(--line2);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vmodal-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--gd2);
+  margin-bottom: 2px;
+}
+
+.vm-lbl {
+  font-size: 9px;
+  color: var(--dim2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.vm-in {
+  width: 100%;
+  background: var(--ink3);
+  color: var(--wh);
+  border: 1px solid var(--line2);
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 11px;
+  outline: none;
+}
+
+.vm-in:focus {
+  border-color: var(--gd);
+}
+
+.vm-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.vm-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: all 0.15s;
+}
+
+.vms {
+  background: transparent;
+  border: 1px solid var(--gd);
+  color: var(--gd2);
+}
+
+.vms:hover {
+  background: rgba(232, 204, 136, 0.08);
+}
+
+.vmc {
+  background: transparent;
+  border: 1px solid var(--line2);
+  color: var(--dim);
+}
+
+.vmc:hover {
+  border-color: var(--line3);
+}
+
+.vault-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pcard {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pcard-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pav {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+  flex-shrink: 0;
+}
+
+.pname {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--wh);
+  letter-spacing: 0.04em;
+}
+
+.ptag {
+  font-size: 9px;
+  color: var(--dim2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.pscore-wrap {
+  margin-left: auto;
+  text-align: right;
+}
+
+.pscore {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.pscore-denom {
+  font-size: 11px;
+  color: var(--dim2);
+}
+
+.preceipts {
+  padding: 11px 16px;
+  font-size: 10px;
+  color: var(--dim);
+  line-height: 1.7;
+}
+
+.vault-empty {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--dim2);
+  line-height: 1.8;
+}

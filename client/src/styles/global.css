@@ -1,0 +1,80 @@
+:root {
+  /* Ink / background scale */
+  --ink: #0a0614;
+  --ink2: #100c20;
+  --ink3: #18122e;
+  --ink4: #221a3e;
+
+  /* Hairline borders */
+  --line: #ffffff14;
+  --line2: #ffffff22;
+  --line3: #ffffff35;
+
+  /* Accent: violet */
+  --v: #b49eff;
+  --v2: #ddd4ff;
+  --v3: #7a5ccc;
+
+  /* Accent: pink */
+  --pk: #ff8ec8;
+  --pk2: #ffd0eb;
+  --pk3: #cc5a9a;
+
+  /* Accent: gold */
+  --gd: #e8cc88;
+  --gd2: #fff3cc;
+
+  /* Foreground */
+  --wh: #f5f0ff;
+  --wh2: #ffffffcc;
+  --dim: #9988bb;
+  --dim2: #6a5a88;
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--wh);
+  font-family: var(--font-mono);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+}
+
+button {
+  font-family: inherit;
+}
+
+textarea,
+input {
+  font-family: inherit;
+}
+
+/* Scrollbar styling for the dark theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line2) transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

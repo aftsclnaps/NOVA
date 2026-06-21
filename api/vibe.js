@@ -1,5 +1,6 @@
 import { callGemini } from "../lib/gemini.js";
 import { VIBE_SYSTEM_PROMPT } from "../lib/personas.js";
+import { parseNovaJson } from "../lib/parseJson.js";
 
 const DAYS = [
   "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
@@ -24,11 +25,10 @@ export default async function handler(req, res) {
     const raw = await callGemini(
       VIBE_SYSTEM_PROMPT(day),
       [{ role: "user", content: `vibe for ${day}` }],
-      300
+      800
     );
 
-    const cleaned = raw.replace(/```json|```/g, "").trim();
-    const parsed = JSON.parse(cleaned);
+    const parsed = parseNovaJson(raw);
 
     res.status(200).json(parsed);
   } catch (err) {

@@ -1,5 +1,6 @@
 import { callGemini } from "../lib/gemini.js";
 import { VERDICT_SYSTEM_PROMPT } from "../lib/personas.js";
+import { parseNovaJson } from "../lib/parseJson.js";
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -24,11 +25,10 @@ export default async function handler(req, res) {
     const raw = await callGemini(
       VERDICT_SYSTEM_PROMPT,
       [{ role: "user", content: situation }],
-      400
+      1024
     );
 
-    const cleaned = raw.replace(/```json|```/g, "").trim();
-    const parsed = JSON.parse(cleaned);
+    const parsed = parseNovaJson(raw);
 
     res.status(200).json(parsed);
   } catch (err) {
